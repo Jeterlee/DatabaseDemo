@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android' // 添加kotlin插件
+apply plugin: 'kotlin-android-extensions' // 添加kotlin扩展（必须）
+apply plugin: 'org.greenrobot.greendao' // greendao应用插件
+apply plugin: 'realm-android' // 应用realm插件
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "cn.jeterlee.database"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // 防止findbugs重复
+    configurations.all {
+        resolutionStrategy.force "com.google.code.findbugs:jsr305:3.0.2"
+    }
+}
+
+greendao{
+    // 指定数据库schema版本号，迁移等操作会用到
+    schemaVersion 1
+    // dao的包名，包名默认是entity
+    daoPackage 'cn.jeterlee.greendao.gen'
+    // 生成数据库文件目录
+    targetGenDir 'src/main/java'
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.zhy:base-rvadapter:3.0.3'
+    compile 'com.zhy:base-adapter:3.0.3'
+
+    // 添加 greendao 库
+    compile 'org.greenrobot:greendao:3.2.2'
+    compile 'org.greenrobot:greendao-generator:3.2.2'
+    // sql加密（配合greendao数据库）
+    compile 'net.zetetic:android-database-sqlcipher:3.5.6'
+
+    // 添加 kotlin 库
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // 添加 anko 全部lib
+    compile "org.jetbrains.anko:anko:$anko_version"
+
+    // 添加 ormlite 库
+    compile 'com.j256.ormlite:ormlite-core:5.0'
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+
+    // 添加 realm 库
+    compile 'io.realm:realm-android-library:3.7.2'
+}
