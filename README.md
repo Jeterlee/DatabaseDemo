@@ -29,8 +29,8 @@
     
 <h3 id="#1.2.0">1.2、greenDao的新特性（配置、注解、加密、支持Kotlin）</h3>
 
-    - step1 在 project 的 gradle 文件中引入 greenDAO插件
-        ```
+   - step1 在 project 的 gradle 文件中引入 greenDAO插件
+   ```
         buildscript {  
             repositories {  
                 mavenCentral()  
@@ -39,10 +39,10 @@
                 classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'  
             }  
         }  
-        ```
+    ```
+    
     - step2 在 module 的 gradle 文件中添加 greenDAO插件，并引入相关类库
-        ```
-        apply plugin: 'com.android.application'  
+    ``` 
         apply plugin: 'org.greenrobot.greendao'  // 添加greenDao应用插件
 
         android {  
@@ -67,14 +67,15 @@
             
             compile 'org.greenrobot:greendao-generator:3.2.2'
         }
-        ```
-        ```
+    ```
+    
+    ```
         schemaVersion： 数据库schema版本，也可以理解为数据库版本号
         daoPackage：设置DaoMaster、DaoSession、Dao包名
         targetGenDir：设置DaoMaster、DaoSession、Dao目录
         targetGenDirTest：设置生成单元测试目录
         generateTests：设置自动生成单元测试用例
-        ```
+    ```
 
 <h3 id="#1.3.0">1.3、参考资料</h3>
 
