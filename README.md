@@ -60,18 +60,28 @@ greendao {
 dependencies {
     ...
 
+    // 添加 greendao 库
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'org.greenrobot:greendao-generator:3.2.2'
 }
 ```
 
     说明：
-    1. **schemaVersion**： 数据库schema版本，也可以理解为数据库版本号
-    2. **daoPackage**：设置DaoMaster、DaoSession、Dao包名
-    3. **targetGenDir**：设置DaoMaster、DaoSession、Dao目录
-    4. **targetGenDirTest**：设置生成单元测试目录
-    5. **generateTests**：设置自动生成单元测试用例
+    1. schemaVersion： 数据库schema版本，也可以理解为数据库版本号
+    2. daoPackage：设置DaoMaster、DaoSession、Dao包名
+    3. targetGenDir：设置DaoMaster、DaoSession、Dao目录
+    4. targetGenDirTest：设置生成单元测试目录
+    5. generateTests：设置自动生成单元测试用例
 
+#### 注解
+
+#### 加密
+
+- step3 在 module 的 gradle 文件中添加引入加密类库
+```
+// sql加密（配合greendao数据库）
+compile 'net.zetetic:android-database-sqlcipher:3.5.6'
+```
 
 <h3 id="#1.3.0">1.3、参考资料</h3>
 
@@ -100,6 +110,31 @@ dependencies {
 
 <h3 id="#2.2.0">2.2、realm的配置</h3>
 
+- step1 在 project 的 gradle 文件中引入 Realm插件
+```
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.realm:realm-gradle-plugin:3.7.2" // 添加 realm 插件
+    }
+}
+```
+
+- step2 在 module 的 gradle 文件中添加 Realm插件，并引入相关类库
+```
+apply plugin: 'realm-android' // 应用realm插件
+android {
+    ...
+}
+dependencies {
+    ...
+
+    compile 'io.realm:realm-android-library:3.7.2'
+}
+```
+
 <h3 id="#2.3.0">2.3、参考资料</h3>
 
 - [Realm Java](http://blog.csdn.net/h48582291/article/details/51195577)
@@ -118,6 +153,17 @@ dependencies {
 
 
 <h3 id="#3.2.0">3.2、ormlite的配置</h3>
+
+- 在 module 的 gradle 文件中引入相关ormlite类库
+```
+dependencies {
+    ...
+
+    // 添加 ormlite 库
+    compile 'com.j256.ormlite:ormlite-core:5.0'
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+}
+```
 
 <h3 id="#3.3.0">3.3、参考资料</h3>
 
