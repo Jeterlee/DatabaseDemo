@@ -185,6 +185,8 @@ dependencies {
 
 <h3 id="#4.3.0">4.3、参考资料</h3>
 
+- [微信 WCDB for Android的接入](http://www.jianshu.com/p/d0edbbfcf988)
+
 ---
 
 
