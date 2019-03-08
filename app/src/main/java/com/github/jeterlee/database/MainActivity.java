@@ -1,7 +1,9 @@
-package com.jeterlee.database;
+package com.github.jeterlee.database;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.jeterlee.database.R;
 
 public class MainActivity extends AppCompatActivity {
 
