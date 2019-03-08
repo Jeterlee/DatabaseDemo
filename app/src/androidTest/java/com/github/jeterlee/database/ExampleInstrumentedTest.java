@@ -1,4 +1,4 @@
-package com.jeterlee.database;
+package com.github.jeterlee.database;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.jeterlee.database", appContext.getPackageName());
+        assertEquals("com.github.jeterlee.database", appContext.getPackageName());
     }
 }

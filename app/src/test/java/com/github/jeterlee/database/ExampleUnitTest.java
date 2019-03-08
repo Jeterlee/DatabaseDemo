@@ -1,4 +1,4 @@
-package com.jeterlee.database;
+package com.github.jeterlee.database;
 
 import org.junit.Test;
 
